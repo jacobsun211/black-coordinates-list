@@ -1,9 +1,9 @@
-
 from fastapi import APIRouter
-from services import get_IP_data
-from schemas import IPRequest, IPResponse
+from app.services import get_IP_data
+import requests
 
 
+router = APIRouter()
 
 router = APIRouter()
 
@@ -15,4 +15,6 @@ def create_ip(ip):
 
 @router.post('/connection')
 def send_coordinates_ip(ip_data):
-    return
+
+    requests.post('http://localhost:8000/add_coord', json=ip_data)
+    return {"status": "saved to Service B"}

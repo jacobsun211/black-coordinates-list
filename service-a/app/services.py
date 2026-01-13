@@ -9,8 +9,10 @@ def get_IP_data(ip):
 
 
 def get_coordinates_ip(response):
-    coordinates_data = {
-        response.get('query'):
-        f'{response.get('lat')}, {response.get('lon')}'
-    }
-    return coordinates_data
+    ip = response.get('query')
+    coord = f'{response.get("lat")}, {response.get("lon")}'
+
+    requests.post('http://localhost:8000/add_coord', 
+        params={'ip': ip, 'coord': coord})  
+
+    return {ip: coord}
