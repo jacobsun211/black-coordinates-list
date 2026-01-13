@@ -4,7 +4,6 @@ from app.routes import router1 as endpoints
 from app.routes import router2 as redis
 
 
-app = FastAPI()
 
 app = FastAPI(
     title="SERVER B",
