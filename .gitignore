@@ -1,2 +1,3 @@
-.venv
+service-a/.venv
 .idea
+service-a/app/__pycache__/
