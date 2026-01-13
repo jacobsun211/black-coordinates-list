@@ -1,4 +1,6 @@
-.venv
+service-a/.venv
 .idea
 service-b\venv
 service-b\app\__pycache__
+
+service-a/app/__pycache__/
