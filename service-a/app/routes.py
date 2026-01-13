@@ -14,4 +14,4 @@ def create_ip(ip):
 
 @router.post('/connection')
 def send_coordinates_ip(ip_data):
-    return ip_data['ip']
+    return
