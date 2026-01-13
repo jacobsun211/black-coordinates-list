@@ -12,7 +12,7 @@ def get_coordinates_ip(response):
     ip = response.get('query')
     coord = f'{response.get("lat")}, {response.get("lon")}'
 
-    requests.post('http://localhost:8000/add_coord', 
-        params={'ip': ip, 'coord': coord})  
+    requests.post('http://localhost:8000/add_coord',
+                  params={'ip': ip, 'coord': coord})
 
     return {ip: coord}
