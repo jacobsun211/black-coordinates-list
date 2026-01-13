@@ -1,8 +1,5 @@
 service-a/.venv
 .idea
-<<<<<<< HEAD
 service-b\venv
 service-b\app\__pycache__
-=======
 service-a/app/__pycache__/
->>>>>>> a8cdae6ea70a1a7acce0de25db89410e1be0c499
