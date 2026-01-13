@@ -1,3 +1,4 @@
+
 from fastapi import APIRouter
 from services import get_IP_data
 from schemas import IPRequest, IPResponse
