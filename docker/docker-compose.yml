@@ -1,0 +1,31 @@
+services:
+  redis:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  service-b:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.service_b
+    container_name: service-b
+    depends_on:
+      - redis
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  service-a:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.service_a
+    container_name: service-a
+    depends_on:
+      - service-b
+    ports:
+      - "8080:8000"      # host 8080 -> container 8000
+    restart: unless-stopped

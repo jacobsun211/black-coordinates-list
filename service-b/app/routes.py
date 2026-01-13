@@ -1,10 +1,8 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
 from app.storage import get_coord, post_coord
-from app.schemas import CoordRequest
 
-router1 = APIRouter(tags=["server A"])
+router1 = APIRouter(tags=["service A"])
 router2 = APIRouter(tags=["Redis DB"])
-
 
 @router1.post("/connection")
 def get_ip():
@@ -14,15 +12,22 @@ def get_ip():
 def get_coordinates():
     return get_coord()
 
-
 @router2.post("/add_coord")
-def add_coord(data: CoordRequest):
+async def add_coord(request: Request):
+    data = await request.json()
+    
+    if isinstance(data, str):
+        import json
+        data = json.loads(data)
+    
+    ip = list(data.keys())[0]
+    coord = list(data.values())[0]
+    
     try:
-        post_coord(data.ip,data.coord)
-        return {"massage":"ip has been added successfully"}
+        post_coord(ip, coord)
+        return {"message": "ip has been added successfully"}
     except Exception as e:
-        return {"an error occured while trying to add to Redis":e}
-
+        return {"error": str(e)}
 
 
 

@@ -2,8 +2,10 @@ version: '3'
 
 services:
 
-  redis-server:
+  redis-service:
     image: "redis:alpine"
-    command: redis-server
+    command: redis-service
     ports:
       - "6379:6379"
+
+
