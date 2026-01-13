@@ -10,8 +10,7 @@ def get_IP_data(ip):
 
 def get_coordinates_ip(response):
     coordinates_data = {
-        'ip': response.get('query'),
-        'lat': response.get('lat'),
-        'lon': response.get('lon')
+        response.get('query'):
+        f'{response.get('lat')}, {response.get('lon')}'
     }
     return coordinates_data
