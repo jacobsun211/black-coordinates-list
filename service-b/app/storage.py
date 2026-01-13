@@ -12,22 +12,23 @@ redis_db = redis.StrictRedis(host="localhost", port=6379, db=0)
 # key = redis_db.get('half stack')   # get spesific value based on key
 # print(redis_db.incr('data'))    # inc and create if not exist
 
-# print(redis_db.keys())     
 
 def get_coord():
     all_data = {}
-    for key in redis_db.keys():
-        value = redis_db.get(key)
+    for keys in redis_db.keys():
+        values = redis_db.get(keys)
+        key = keys.decode()     
+        value = values.decode() 
         all_data[key] = value
     return all_data
 
-def post_coord(ip,coord):
-    redis_db.set(ip, coord)  
+
+def post_coord(ip, coord):
+    redis_db.set(ip,coord)  
     return True
 
 
-# print(all_data)
 
-# print(all_data[b'half stack'])
+
 
 
