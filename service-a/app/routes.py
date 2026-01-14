@@ -12,5 +12,7 @@ def create_ip(ip):
 
 @router.post('/connection')
 def send_coordinates_ip(ip_data):
-    requests.post('http://localhost:8000/add_coord', json=ip_data)
+    requests.post('http://service-b:8000/add_coord', json=ip_data)
     return {"status": "saved to Service B"}
+
+
