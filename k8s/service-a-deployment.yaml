@@ -18,3 +18,4 @@ spec:
         image: jacobsun211/image-service-a:v1
         ports:
         - containerPort: 8080
+

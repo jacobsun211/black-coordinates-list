@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Request
 from app.storage import get_coord, post_coord
+import json
 
 
 router1 = APIRouter(tags=["service A"])
@@ -21,7 +22,6 @@ async def add_coord(request: Request):
     data = await request.json()
 
     if isinstance(data, str):
-        import json
         data = json.loads(data)
 
     ip = list(data.keys())[0]
@@ -31,4 +31,4 @@ async def add_coord(request: Request):
         post_coord(ip, coord)
         return {"message": "ip has been added successfully"}
     except Exception as e:
-        return {"error": str(e)}
+        return {"error": e}
