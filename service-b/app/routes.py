@@ -1,6 +1,7 @@
 from fastapi import APIRouter, Request
 from app.storage import get_coord, post_coord
 
+
 router1 = APIRouter(tags=["service A"])
 router2 = APIRouter(tags=["Redis DB"])
 
