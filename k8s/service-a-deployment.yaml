@@ -19,14 +19,3 @@ spec:
         image: shalomberman/image-service-a:v1
         ports:
         - containerPort: 8080
-#        env:
-#        - name: POSTGRES_HOST
-#          value: postgres-0.postgres-svc
-#        - name: POSTGRES_PORT
-#          value: '5432'
-#        - name: POSTGRES_DB
-#          value: coordinates_db
-#        - name: POSTGRES_USER
-#          value: postgres
-#        - name: POSTGRES_PASSWORD
-#          value: postgres
