@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a-deployment
+  labels:
+    app: service-a
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: service-a
+  template:
+    metadata:
+      labels:
+        app: service-a
+    spec:
+      containers:
+      - name: service-a
+        image: shalomberman/image-service-a:v1
+        ports:
+        - containerPort: 8080
+#        env:
+#        - name: POSTGRES_HOST
+#          value: postgres-0.postgres-svc
+#        - name: POSTGRES_PORT
+#          value: '5432'
+#        - name: POSTGRES_DB
+#          value: coordinates_db
+#        - name: POSTGRES_USER
+#          value: postgres
+#        - name: POSTGRES_PASSWORD
+#          value: postgres
