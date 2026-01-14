@@ -5,7 +5,6 @@ metadata:
   labels:
     app: service-a
 spec:
-  replicas: 3
   selector:
     matchLabels:
       app: service-a
@@ -16,6 +15,6 @@ spec:
     spec:
       containers:
       - name: service-a
-        image: shalomberman/image-service-a:v1
+        image: jacobsun211/image-service-a:v1
         ports:
         - containerPort: 8080
