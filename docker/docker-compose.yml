@@ -1,8 +1,8 @@
 services:
+
   redis:
-    build:
-      context: ..
-      dockerfile: docker/Dockerfile.redis
+    image: "redis:alpine"
+    command: redis-server
     container_name: redis
     ports:
       - "6379:6379"
@@ -29,3 +29,4 @@ services:
     ports:
       - "8080:8000"      # host 8080 -> container 8000
     restart: unless-stopped
+    
