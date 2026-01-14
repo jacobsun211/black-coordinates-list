@@ -1,4 +1,3 @@
-
 ### localhost
 ```bash
 docker-compose down
@@ -25,4 +24,3 @@ oc expose service/service-a
 oc get pods
 oc get route service-a -o jsonpath='{.spec.host}'
 ```
->>>>>>> 7529ab18be6184405884d09a7f8680593719610b
