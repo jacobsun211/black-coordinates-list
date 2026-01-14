@@ -1,4 +1,5 @@
 import requests
+from routes import send_coordinates_ip
 
 
 def get_IP_data(ip):
@@ -15,4 +16,4 @@ def get_coordinates_ip(response):
     requests.post('http://localhost:8000/add_coord',
                   params={'ip': ip, 'coord': coord})
 
-    return {ip: coord}
+    return send_coordinates_ip({ip: coord})
