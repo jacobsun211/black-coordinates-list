@@ -4,10 +4,19 @@ import requests
 
 router = APIRouter()
 
+def get_coordinates_ip(response):
+    ip = response.get('query')
+    coord = f'{response.get("lat")}, {response.get("lon")}'
+
+    requests.post('http://localhost:8000/add_coord',
+                  params={'ip': ip, 'coord': coord})
+
+    return send_coordinates_ip({ip: coord})
 
 @router.post('/ip')
 def create_ip(ip):
-    return get_IP_data(ip)
+    coord = get_IP_data(ip)
+    return get_coordinates_ip(coord)
 
 
 @router.post('/connection')
